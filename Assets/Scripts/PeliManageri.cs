@@ -11,6 +11,7 @@ public class PeliManageri : Singleton<PeliManageri> {
     public bool spawnaaBanaani = false;
     public List<GameObject> kaikkiBanaanit = new List<GameObject>();
     public Banaani tämänHetkinenBanaani;
+    public Vector3 bananaSpawningPosition = new Vector3(0f, 3f, 0f);
 
     int pisteet = 0;
     int maxPisteet = 0;
@@ -30,8 +31,6 @@ public class PeliManageri : Singleton<PeliManageri> {
     #region Unity Events
     void Awake()
     {
-        BanaaninSpawnaus();
-
         if (!pisteTeksti)
         {
             GameObject pistetekstiPeliObjekti = GameObject.Find("PisteTeksti");
@@ -49,9 +48,7 @@ public class PeliManageri : Singleton<PeliManageri> {
                 häviöTeksti = häviötekstiPeliObjekti.GetComponent<Text>();
             }
         }
-        häviöTeksti.enabled = false;
-
-        currentTimeToLose = timeToLose;
+        StartGame();
     }
 
 	void Update () 
@@ -62,9 +59,29 @@ public class PeliManageri : Singleton<PeliManageri> {
             TarkastaHäviö();
             PäivitäPisteet();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
 	}
 
     #endregion
+
+    public void StartGame()
+    {
+        pisteet = 0;
+        maxPisteet = 0;
+
+        lost = false;
+        häviöTeksti.enabled = false;
+        if (tämänHetkinenBanaani)
+        {
+            Destroy(tämänHetkinenBanaani.gameObject);
+            tämänHetkinenBanaani = null;
+        }
+        BanaaninSpawnaus();
+        currentTimeToLose = timeToLose;
+    }
     //-------------------------------------------------------------
     #region Päivityksiä
     void PäivitäPisteet()
@@ -107,7 +124,6 @@ public class PeliManageri : Singleton<PeliManageri> {
     void Häviä()
     {
         lost = true;
-        print("LÄL HÄVISIT");
         häviöTeksti.enabled = true;
     }
     #endregion
@@ -144,7 +160,7 @@ public class PeliManageri : Singleton<PeliManageri> {
     Banaani SpawnaaRandomBanaani() 
     {
         Transform kameraTransformi = Kamera.Instance.transform;
-        GameObject banaani = (GameObject)Instantiate(RandomBanaani(), new Vector3(kameraTransformi.position.x, kameraTransformi.position.y, 0f), Quaternion.Euler(Vector3.zero));
+        GameObject banaani = (GameObject)Instantiate(RandomBanaani(), bananaSpawningPosition, Quaternion.Euler(Vector3.zero));
         return banaani.GetComponent<Banaani>();
     }
 
