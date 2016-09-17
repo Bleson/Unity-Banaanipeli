@@ -168,7 +168,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c39ab90e64ab3114084a204293df5b33, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "H\xC4VISIT SAATANA"
+  m_Text: YOU LOST LOL
 --- !u!222 &1084623551
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421,12 +421,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3587e11835dd4f7419bf96b9ab93157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnaaBanaani: 0
+  spawnaaBanaani: 1
   kaikkiBanaanit:
   - {fileID: 120680, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
   - {fileID: 162132, guid: 52ce8179b56e36b4aa0664829793ccdc, type: 2}
+  - {fileID: 124456, guid: 9a8e950b683051644aa86ed78e7575b8, type: 2}
+  - {fileID: 104148, guid: 1801bb41af903ec478bd7f9f0c2e18eb, type: 2}
+  - {fileID: 146146, guid: 47037246603e9f342baead3a8eea16f0, type: 2}
+  - {fileID: 103572, guid: 4f23ed6458a05bc41b9dc54dbf0fa50e, type: 2}
+  - {fileID: 114970, guid: 8b26852d386764d4b99283088d41de80, type: 2}
   "t\xE4m\xE4nHetkinenBanaani": {fileID: 0}
-  canLose: 1
+  canLose: 0
   lost: 0
   timeToLose: 5
   currentTimeToLose: 0
@@ -493,7 +498,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 0, y: 47.1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2069368857
@@ -516,7 +521,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c39ab90e64ab3114084a204293df5b33, type: 3}
     m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0

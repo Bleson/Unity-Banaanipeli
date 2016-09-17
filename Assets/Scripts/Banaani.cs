@@ -27,14 +27,22 @@ public class Banaani : MonoBehaviour
 	    
 	}
 
-    internal void PäivitäKontrollit()
+    internal virtual void PäivitäKontrollit()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             if (jäljelläOlevaVääntöaika > 0f)
             {
                 jäljelläOlevaVääntöaika = Mathf.Clamp(jäljelläOlevaVääntöaika - Time.deltaTime, 0f, maksimiVääntöaika);
                 KäännäBanaania();
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (jäljelläOlevaVääntöaika > 0f)
+            {
+                jäljelläOlevaVääntöaika = Mathf.Clamp(jäljelläOlevaVääntöaika - Time.deltaTime, 0f, maksimiVääntöaika);
+                KäännäBanaania(-1f);
             }
         }
         else
@@ -43,10 +51,10 @@ public class Banaani : MonoBehaviour
         }
     }
 
-    internal void KäännäBanaania()
+    internal virtual void KäännäBanaania(float directionMultiplier = 1f)
     {
-        kaksiulotteinenJämäkkäKeho.AddTorque(vääntövoima * Time.deltaTime, ForceMode2D.Impulse);
-        kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima, 0f), ForceMode2D.Force);
+        kaksiulotteinenJämäkkäKeho.AddTorque(vääntövoima * Time.deltaTime * directionMultiplier, ForceMode2D.Impulse);
+        kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima * directionMultiplier, 0f), ForceMode2D.Force);
     }
 
 }

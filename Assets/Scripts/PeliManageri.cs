@@ -11,7 +11,6 @@ public class PeliManageri : Singleton<PeliManageri> {
     public bool spawnaaBanaani = false;
     public List<GameObject> kaikkiBanaanit = new List<GameObject>();
     public Banaani tämänHetkinenBanaani;
-    float spawnattavanBanaaninOffsetY = 1f;
 
     int pisteet = 0;
     int maxPisteet = 0;

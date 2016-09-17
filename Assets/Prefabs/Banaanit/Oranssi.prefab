@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 496952}
+  - 212: {fileID: 21232632}
+  - 60: {fileID: 6062382}
+  - 50: {fileID: 5022700}
+  - 114: {fileID: 11402848}
+  m_Layer: 0
+  m_Name: Oranssi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496952
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.043272823, y: 3.05228, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!50 &5022700
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124456}
+  m_UseAutoMass: 0
+  m_Mass: 0.12
+  m_LinearDrag: 0
+  m_AngularDrag: 1
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 2
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!60 &6062382
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124456}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3bb1a310dc320a0479c447b41f6ed22b, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.17812365, y: -0.17442584}
+      - {x: -0.1305237, y: -0.21597719}
+      - {x: -0.058427557, y: -0.230304}
+      - {x: 0.020984866, y: -0.23660398}
+      - {x: 0.11055361, y: -0.21241975}
+      - {x: 0.15238053, y: -0.18527699}
+      - {x: 0.20212711, y: -0.14794254}
+      - {x: 0.23650001, y: -0.08450001}
+      - {x: 0.24114525, y: -0.002755165}
+      - {x: 0.2375972, y: 0.04493928}
+      - {x: 0.22320974, y: 0.09960723}
+      - {x: 0.19763578, y: 0.14403415}
+      - {x: 0.16099519, y: 0.19099116}
+      - {x: 0.10049668, y: 0.22920418}
+      - {x: 0.047143325, y: 0.24090171}
+      - {x: -0.038902327, y: 0.23879313}
+      - {x: -0.0935, y: 0.22600001}
+      - {x: -0.15975702, y: 0.19641781}
+      - {x: -0.20167631, y: 0.15507627}
+      - {x: -0.23108074, y: 0.096096754}
+      - {x: -0.24827597, y: 0.00799489}
+      - {x: -0.24073732, y: -0.06181431}
+      - {x: -0.21300001, y: -0.125}
+--- !u!114 &11402848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ed55821edcfa64db3d0ceebccaeca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "v\xE4\xE4nt\xF6voima": -0.2
+  "t\xF6n\xE4syvoima": -0.1
+  "maksimiV\xE4\xE4nt\xF6aika": 1
+  "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
+  "v\xE4\xE4nt\xF6voimanLatausKerroin": 2
+--- !u!212 &21232632
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124456}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 9f69ae8c28c53b64d9cb421bd27a6bbc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 124456}
+  m_IsPrefabParent: 1

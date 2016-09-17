@@ -18,7 +18,7 @@ public class Kamera : Singleton<Kamera>
     public float maxOffsetY = 5f;
 
     float minSize = 1f;
-    float maxSize = 7f;
+    float maxSize = 5f;
 
     float speedPercent = 0.4f;
     float speedChangingSpeed = 0.5f;
@@ -46,7 +46,7 @@ public class Kamera : Singleton<Kamera>
             followingSpeed);
 
         transform.rotation = Quaternion.Euler(Vector3.zero);
-        kamera.orthographicSize = Mathf.Lerp(minSize, maxSize, speedPercent * 2f);
+        kamera.orthographicSize = Mathf.Lerp(minSize, maxSize, speedPercent * 1.5f);
         //kamera.orthographicSize = Mathf.Lerp(minSize, maxSize, Mathf.InverseLerp(0f, 6f, transform.position.y));
     }
 }
