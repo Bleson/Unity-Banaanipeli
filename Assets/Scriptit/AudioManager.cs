@@ -1,21 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
+    public bool musicOn = true;
 
-    AudioSource musicManager;
-    AudioSource bananaBoing;
-    AudioSource newHighScore;
-    AudioSource pikseliBanaani;
-    AudioSource tumps;
-    AudioSource metalliBanaani;
-    AudioSource paperi;
-    AudioSource menuButton1;
-    AudioSource menuButton2;
-    AudioSource vauhtiViisu;
+    [SerializeField] AudioSource musicManager;
+    [SerializeField] AudioSource bananaBoing;
+    [SerializeField] AudioSource newHighScore;
+    [SerializeField] AudioSource pikseliBanaani;
+    [SerializeField] AudioSource tumps;
+    [SerializeField] AudioSource metalliBanaani;
+    [SerializeField] AudioSource paperi;
+    [SerializeField] AudioSource menuButton1;
+    [SerializeField] AudioSource menuButton2;
+    [SerializeField] AudioSource vauhtiViisu;
 
     void Start()
+    {
+        LocateAudiosources();
+
+        if (musicOn)
+        {
+            PlayMusic();
+        }
+    }
+
+    void LocateAudiosources()
     {
         musicManager = transform.FindChild("MusicManager").GetComponent<AudioSource>();
         bananaBoing = transform.FindChild("BananaBoing").GetComponent<AudioSource>();
@@ -27,7 +38,6 @@ public class AudioManager : MonoBehaviour
         menuButton1 = transform.FindChild("MenuButton").GetComponent<AudioSource>();
         menuButton2 = transform.FindChild("MenuButton2").GetComponent<AudioSource>();
         vauhtiViisu = transform.FindChild("VauhtiViisu").GetComponent<AudioSource>();
-
     }
 
     #region Music

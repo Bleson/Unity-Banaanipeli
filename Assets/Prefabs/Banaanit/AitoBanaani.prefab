@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6053970}
   - 50: {fileID: 5095042}
   - 114: {fileID: 11477402}
+  - 114: {fileID: 11470004}
   m_Layer: 0
   m_Name: AitoBanaani
   m_TagString: Untagged
@@ -28,6 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 440550}
   - 60: {fileID: 6082916}
+  - 114: {fileID: 11494850}
   m_Layer: 0
   m_Name: "K\xE4rki"
   m_TagString: Untagged
@@ -129,6 +131,17 @@ PolygonCollider2D:
       - {x: 0.4928754, y: 0.2919824}
       - {x: 0.49411634, y: 0.24570847}
       - {x: 0.46201012, y: 0.15787768}
+--- !u!114 &11470004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11477402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +158,17 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 1
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 2
+--- !u!114 &11494850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd7f3641a66494793f0f35432c0739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21216170
 SpriteRenderer:
   m_ObjectHideFlags: 1

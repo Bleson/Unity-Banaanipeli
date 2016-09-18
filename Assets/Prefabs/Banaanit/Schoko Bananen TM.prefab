@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 463762}
   - 60: {fileID: 6071358}
+  - 114: {fileID: 11422566}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Untagged
@@ -28,6 +29,7 @@ GameObject:
   - 60: {fileID: 6006992}
   - 50: {fileID: 5027322}
   - 114: {fileID: 11436226}
+  - 114: {fileID: 11418556}
   m_Layer: 0
   m_Name: Schoko Bananen TM
   m_TagString: Untagged
@@ -133,6 +135,28 @@ PolygonCollider2D:
       - {x: -0.24398065, y: 0.007675171}
       - {x: -0.20236957, y: -0.016455173}
       - {x: 0.10904753, y: 0.040513277}
+--- !u!114 &11418556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11422566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd7f3641a66494793f0f35432c0739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11436226
 MonoBehaviour:
   m_ObjectHideFlags: 1

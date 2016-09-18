@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6018212}
   - 50: {fileID: 5070688}
   - 114: {fileID: 11402698}
+  - 114: {fileID: 11461636}
   m_Layer: 0
   m_Name: Pixel Banana
   m_TagString: Untagged
@@ -103,6 +104,17 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 3
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 0
+--- !u!114 &11461636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016dad0e1be45ff439089e011b54610b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21261934
 SpriteRenderer:
   m_ObjectHideFlags: 1

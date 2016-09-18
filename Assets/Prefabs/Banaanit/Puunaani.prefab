@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6037394}
   - 50: {fileID: 5041552}
   - 114: {fileID: 11498180}
+  - 114: {fileID: 11467476}
   m_Layer: 0
   m_Name: Puunaani
   m_TagString: Untagged
@@ -91,6 +92,17 @@ PolygonCollider2D:
       - {x: -0.21185327, y: -0.026691675}
       - {x: -0.3967036, y: 0.006342888}
       - {x: -0.4707446, y: -0.0077648163}
+--- !u!114 &11467476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11498180
 MonoBehaviour:
   m_ObjectHideFlags: 1

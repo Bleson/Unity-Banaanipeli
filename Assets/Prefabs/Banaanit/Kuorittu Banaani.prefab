@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6047506}
   - 50: {fileID: 5064902}
   - 114: {fileID: 11436576}
+  - 114: {fileID: 11465920}
   m_Layer: 0
   m_Name: Kuorittu Banaani
   m_TagString: Untagged
@@ -110,6 +111,17 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 0.5
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 3
+--- !u!114 &11465920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21275942
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -85,6 +85,48 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &164790850
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464314, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 99a98c285e7a6474485f5848edffe75f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &567102392 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 190470, guid: 95e5079fbb679f74d91bea2a511a8637, type: 2}
@@ -541,6 +583,10 @@ Prefab:
     - target: {fileID: 435296, guid: 401137b45096b4347b1c43fd279dda20, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449258, guid: 401137b45096b4347b1c43fd279dda20, type: 2}
+      propertyPath: musicOn
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 401137b45096b4347b1c43fd279dda20, type: 2}

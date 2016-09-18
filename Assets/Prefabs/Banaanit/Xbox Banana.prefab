@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6096240}
   - 50: {fileID: 5092640}
   - 114: {fileID: 11411314}
+  - 114: {fileID: 11421892}
   m_Layer: 0
   m_Name: Xbox Banana
   m_TagString: Untagged
@@ -28,6 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430150}
   - 60: {fileID: 6016296}
+  - 114: {fileID: 11442440}
   m_Layer: 0
   m_Name: "K\xE4rki"
   m_TagString: Untagged
@@ -145,6 +147,28 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 1
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 2
+--- !u!114 &11421892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11442440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd7f3641a66494793f0f35432c0739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21265278
 SpriteRenderer:
   m_ObjectHideFlags: 1

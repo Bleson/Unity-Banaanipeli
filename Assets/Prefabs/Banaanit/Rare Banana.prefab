@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 405356}
   - 60: {fileID: 6042106}
+  - 114: {fileID: 11450838}
   m_Layer: 0
   m_Name: Pepe
   m_TagString: Untagged
@@ -28,6 +29,7 @@ GameObject:
   - 60: {fileID: 6093768}
   - 50: {fileID: 5027830}
   - 114: {fileID: 11432164}
+  - 114: {fileID: 11404176}
   m_Layer: 0
   m_Name: Rare Banana
   m_TagString: Untagged
@@ -139,6 +141,17 @@ PolygonCollider2D:
       - {x: -0.34178126, y: -0.20737767}
       - {x: -0.37170246, y: -0.22081137}
       - {x: -0.42070484, y: -0.23431945}
+--- !u!114 &11404176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11432164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +168,17 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 0.3
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 1
+--- !u!114 &11450838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd7f3641a66494793f0f35432c0739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21289082
 SpriteRenderer:
   m_ObjectHideFlags: 1
