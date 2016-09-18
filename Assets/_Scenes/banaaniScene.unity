@@ -844,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1374704299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -905,6 +905,18 @@ Prefab:
     - target: {fileID: 435296, guid: 8475d25cce3867342a8806d7e42ee755, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225338, guid: 8475d25cce3867342a8806d7e42ee755, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225338, guid: 8475d25cce3867342a8806d7e42ee755, type: 2}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220930, guid: 8475d25cce3867342a8806d7e42ee755, type: 2}
+      propertyPath: m_Volume
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8475d25cce3867342a8806d7e42ee755, type: 2}
