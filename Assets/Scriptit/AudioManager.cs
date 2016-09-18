@@ -37,7 +37,10 @@ public class AudioManager : Singleton<AudioManager>
         paperi = transform.FindChild("Paperi").GetComponent<AudioSource>();
         menuButton1 = transform.FindChild("MenuButton").GetComponent<AudioSource>();
         menuButton2 = transform.FindChild("MenuButton2").GetComponent<AudioSource>();
-        vauhtiViisu = transform.FindChild("VauhtiViisu").GetComponent<AudioSource>();
+        if (!vauhtiViisu)
+        {
+            vauhtiViisu = transform.FindChild("VauhtiViisu").GetComponent<AudioSource>();
+        }
     }
 
     #region Music

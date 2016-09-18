@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     SpriteRenderer sRenderer;
 
-    bool activated = false;
+    public bool activated = false;
 
     int blinkingTimes = 3;
     float timeBetweenColorChanges = 0.2f;
@@ -41,6 +41,7 @@ public class Checkpoint : MonoBehaviour
         activated = true;
         PeliManageri.Instance.currentCheckpoint = this;
         PeliManageri.Instance.AddTime();
+        PeliManageri.Instance.tämänHetkinenBanaani.Refresh();
         StartCoroutine(E_Blinking());
     }
 

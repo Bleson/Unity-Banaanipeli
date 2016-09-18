@@ -27,7 +27,7 @@ public class LevelGenerator : Singleton<LevelGenerator> {
     public float levelStartingHeight = 0f;
     List<LattiaPala> _lattiapalat = new List<LattiaPala>();
     public List<GameObject> lattiapalat = new List<GameObject>();
-    public List<float> lattiapalatLeveys = new List<float>();
+    public float lattiapalatLeveys = 17.56f;
 
     public GameObject checkpoint;
     Checkpoint checkpointClass;
@@ -76,7 +76,7 @@ public class LevelGenerator : Singleton<LevelGenerator> {
         _lattiapalat.Clear();
         for (int i = 0; i < lattiapalat.Count; i++)
         {
-            _lattiapalat.Add(new LattiaPala(lattiapalat[i], lattiapalatLeveys[i]));
+            _lattiapalat.Add(new LattiaPala(lattiapalat[i], lattiapalatLeveys));
         }
     }
 
@@ -91,7 +91,7 @@ public class LevelGenerator : Singleton<LevelGenerator> {
 
     void SpawnFloor(E_FloorDirection direction)
     {
-        LattiaPala lattiaPalaToUse = _lattiapalat[0];
+        LattiaPala lattiaPalaToUse = _lattiapalat[Random.Range(0,_lattiapalat.Count)];
         switch (direction)
         {
             case E_FloorDirection.Left:

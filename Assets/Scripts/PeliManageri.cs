@@ -85,6 +85,10 @@ public class PeliManageri : Singleton<PeliManageri> {
         {
             RestartToLastCheckpoint();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
 	}
 
     #endregion
@@ -94,6 +98,7 @@ public class PeliManageri : Singleton<PeliManageri> {
     {
         pisteet = 0;
         maxPisteet = 0;
+        currentCheckpoint = null;
 
         lost = false;
 
@@ -107,6 +112,10 @@ public class PeliManageri : Singleton<PeliManageri> {
         }
         BanaaninSpawnaus();
         currentTimeToLose = startingTime;
+        foreach (Checkpoint cp in GameObject.FindObjectsOfType<Checkpoint>())
+        {
+            cp.activated = false;
+        }
     }
 
     public void RestartToLastCheckpoint()

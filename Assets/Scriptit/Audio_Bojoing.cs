@@ -3,11 +3,8 @@ using System.Collections;
 
 public class Bojoing : MonoBehaviour
 {
-
-    void OnCollisionExit()
+    void OnCollisionExit2D(Collision2D coll)
     {
         AudioManager.Instance.BananaBoing();
     }
-
-
 }

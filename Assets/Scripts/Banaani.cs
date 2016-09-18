@@ -10,7 +10,7 @@ public class Banaani : MonoBehaviour
     public float jäljelläOlevaVääntöaika;
     public float vääntövoimanLatausKerroin = 2f;
 
-    Rigidbody2D kaksiulotteinenJämäkkäKeho;
+    public Rigidbody2D kaksiulotteinenJämäkkäKeho;
     
     //-----------------------------------------------------------------
     void Awake()
@@ -54,7 +54,7 @@ public class Banaani : MonoBehaviour
     internal virtual void KäännäBanaania(float directionMultiplier = 1f)
     {
         kaksiulotteinenJämäkkäKeho.AddTorque(vääntövoima * Time.deltaTime * directionMultiplier, ForceMode2D.Impulse);
-        kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima * directionMultiplier, 0f), ForceMode2D.Force);
+        kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima * directionMultiplier, tönäsyvoima * directionMultiplier / 2f), ForceMode2D.Force);
     }
 
     public void Teleport(Vector3 position)
@@ -62,5 +62,10 @@ public class Banaani : MonoBehaviour
         transform.position = position;
         kaksiulotteinenJämäkkäKeho.velocity = Vector2.zero;
         kaksiulotteinenJämäkkäKeho.rotation = 0f;
+    }
+
+    internal void Refresh()
+    {
+        jäljelläOlevaVääntöaika = maksimiVääntöaika;
     }
 }

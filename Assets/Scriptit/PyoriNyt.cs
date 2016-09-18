@@ -9,6 +9,7 @@ public class PyoriNyt : MonoBehaviour
     void Start()
     {
         suunta = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0f, 360f)));
     }
 
     void Update()
@@ -20,25 +21,25 @@ public class PyoriNyt : MonoBehaviour
 
     void TarkistaRajat()
     {
-        if (transform.localPosition.x > 1005)
+        if (transform.localPosition.x > 1205)
         {
             float y = transform.localPosition.y;
-            transform.localPosition = new Vector2(-1000f, y);
+            transform.localPosition = new Vector2(-1200f, y);
         }
-        else if (transform.localPosition.x < -1005)
+        else if (transform.localPosition.x < -1205)
         {
             float y = transform.localPosition.y;
-            transform.localPosition = new Vector2(1000, y);
+            transform.localPosition = new Vector2(1200, y);
         }
-        else if (transform.localPosition.y > 535)
+        else if (transform.localPosition.y > 935)
         {
             float x = transform.localPosition.x;
-            transform.localPosition = new Vector2(-530, x);
+            transform.localPosition = new Vector2(-930, x);
         }
-        else if (transform.localPosition.y < -535)
+        else if (transform.localPosition.y < -935)
         {
             float x = transform.localPosition.x;
-            transform.localPosition = new Vector2(530, x);
+            transform.localPosition = new Vector2(930, x);
         }
 
     }

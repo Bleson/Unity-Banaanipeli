@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 120680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7834ffcc51221cc478d1c35bc3ed032a, type: 3}
+  m_Script: {fileID: 11500000, guid: a454ce4585722974ba093cf26730f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11477402
@@ -158,6 +158,7 @@ MonoBehaviour:
   "maksimiV\xE4\xE4nt\xF6aika": 1
   "j\xE4ljell\xE4OlevaV\xE4\xE4nt\xF6aika": 0
   "v\xE4\xE4nt\xF6voimanLatausKerroin": 2
+  "kaksiulotteinenJ\xE4m\xE4kk\xE4Keho": {fileID: 0}
 --- !u!114 &11494850
 MonoBehaviour:
   m_ObjectHideFlags: 1

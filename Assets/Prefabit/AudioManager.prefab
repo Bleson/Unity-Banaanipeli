@@ -488,7 +488,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7963d0e9c7b765f41a787a7cfe45e1c9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -539,7 +539,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1077,9 +1077,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 131992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e35e7434864c344920c6faf1357135, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bfdf6fd1d5236b4abe97dd00b7d4410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicOn: 1
   musicManager: {fileID: 0}
   bananaBoing: {fileID: 0}
   newHighScore: {fileID: 0}
@@ -1089,7 +1090,7 @@ MonoBehaviour:
   paperi: {fileID: 0}
   menuButton1: {fileID: 0}
   menuButton2: {fileID: 0}
-  vauhtiViisu: {fileID: 0}
+  vauhtiViisu: {fileID: 8225338}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
