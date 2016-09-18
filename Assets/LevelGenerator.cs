@@ -29,8 +29,11 @@ public class LevelGenerator : Singleton<LevelGenerator> {
     public List<GameObject> lattiapalat = new List<GameObject>();
     public List<float> lattiapalatLeveys = new List<float>();
 
-    public float floorEndingLeft = 0f;
-    public float floorEndingRight = 0f;
+    public GameObject checkpoint;
+    Checkpoint checkpointClass;
+
+    public Vector2 floorEndingLeft = Vector2.zero;
+    public Vector2 floorEndingRight = Vector2.zero;
 
     float distanceToSpawnNewFloor = 30f;
     //-------------------------------------------------------------
@@ -41,17 +44,28 @@ public class LevelGenerator : Singleton<LevelGenerator> {
         {
             environmentParent = GameObject.Find("Ympäristö").transform;
         }
+        if (!checkpointClass)
+        {
+            if (checkpoint)
+            {
+                checkpointClass = checkpoint.GetComponent<Checkpoint>();
+            }
+            else
+            {
+                print("MISSING CHECKPOINT");
+            }
+        }
         CombineLists();
         SpawnFirstFloors();
     }
 
     void FixedUpdate()
     {
-        if (Mathf.Abs(PeliManageri.Instance.tämänHetkinenBanaani.transform.position.x) + distanceToSpawnNewFloor > floorEndingRight)
+        if (Mathf.Abs(PeliManageri.Instance.tämänHetkinenBanaani.transform.position.x) + distanceToSpawnNewFloor > floorEndingRight.x)
         {
             SpawnFloor(E_FloorDirection.Right);
         }
-        if (PeliManageri.Instance.tämänHetkinenBanaani.transform.position.x - distanceToSpawnNewFloor < floorEndingLeft)
+        if (PeliManageri.Instance.tämänHetkinenBanaani.transform.position.x - distanceToSpawnNewFloor < floorEndingLeft.x)
         {
             SpawnFloor(E_FloorDirection.Left);
         }
@@ -81,12 +95,14 @@ public class LevelGenerator : Singleton<LevelGenerator> {
         switch (direction)
         {
             case E_FloorDirection.Left:
-                SpawnFloor(lattiaPalaToUse, new Vector3(floorEndingLeft - lattiaPalaToUse.width / 2f, levelStartingHeight, 0f));
-                floorEndingLeft -= lattiaPalaToUse.width;
+                SpawnFloor(lattiaPalaToUse, new Vector3(floorEndingLeft.x - lattiaPalaToUse.width / 2f, levelStartingHeight, 0f));
+                floorEndingLeft.x -= lattiaPalaToUse.width;
+                SpawnCheckPoint(floorEndingLeft);
                 break;
             case E_FloorDirection.Right:
-                SpawnFloor(lattiaPalaToUse, new Vector3(floorEndingRight + lattiaPalaToUse.width / 2f, levelStartingHeight, 0f));
-                floorEndingRight += lattiaPalaToUse.width;
+                SpawnFloor(lattiaPalaToUse, new Vector3(floorEndingRight.x + lattiaPalaToUse.width / 2f, levelStartingHeight, 0f));
+                floorEndingRight.x += lattiaPalaToUse.width;
+                SpawnCheckPoint(floorEndingRight);
                 break;
             default:
                 break;
@@ -97,5 +113,10 @@ public class LevelGenerator : Singleton<LevelGenerator> {
     {
         GameObject go = (GameObject)Instantiate(floorToSpawn.gO, location, Quaternion.Euler(Vector3.zero));
         go.transform.parent = environmentParent;
+    }
+
+    void SpawnCheckPoint(Vector2 location)
+    {
+        Instantiate(checkpoint, new Vector2(location.x, location.y + checkpointClass.OffsetY), Quaternion.Euler(Vector3.zero));
     }
 }

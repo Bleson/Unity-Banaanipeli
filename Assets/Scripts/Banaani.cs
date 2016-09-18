@@ -29,7 +29,7 @@ public class Banaani : MonoBehaviour
 
     internal virtual void PäivitäKontrollit()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             if (jäljelläOlevaVääntöaika > 0f)
             {
@@ -37,7 +37,7 @@ public class Banaani : MonoBehaviour
                 KäännäBanaania();
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             if (jäljelläOlevaVääntöaika > 0f)
             {
@@ -57,4 +57,10 @@ public class Banaani : MonoBehaviour
         kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima * directionMultiplier, 0f), ForceMode2D.Force);
     }
 
+    public void Teleport(Vector3 position)
+    {
+        transform.position = position;
+        kaksiulotteinenJämäkkäKeho.velocity = Vector2.zero;
+        kaksiulotteinenJämäkkäKeho.rotation = 0f;
+    }
 }

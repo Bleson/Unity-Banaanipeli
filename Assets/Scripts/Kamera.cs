@@ -17,8 +17,8 @@ public class Kamera : Singleton<Kamera>
     public float minOffsetY = 0f;
     public float maxOffsetY = 5f;
 
-    float minSize = 1f;
-    float maxSize = 5f;
+    public float minSize = 1f;
+    public float maxSize = 5f;
 
     float speedPercent = 0.4f;
     float speedChangingSpeed = 0.5f;
