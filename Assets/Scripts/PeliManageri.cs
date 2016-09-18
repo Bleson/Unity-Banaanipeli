@@ -87,6 +87,7 @@ public class PeliManageri : Singleton<PeliManageri> {
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //Application.LoadLevel(1);
             StartGame();
         }
 	}
