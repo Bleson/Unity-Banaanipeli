@@ -16,7 +16,8 @@ public class ValikkoSiilo : MonoBehaviour
 
     public void PolkaisePeliKayntiin()
     {
-        Debug.Log("Olis varmaan kiva pelatakki jotain...");
+        Application.LoadLevel(1);
+        //Debug.Log("Olis varmaan kiva pelatakki jotain...");
     }
 
     public void SiirryPaaValikkoon()
