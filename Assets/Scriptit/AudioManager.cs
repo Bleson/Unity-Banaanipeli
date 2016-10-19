@@ -16,6 +16,8 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] AudioSource menuButton2;
     [SerializeField] AudioSource vauhtiViisu;
 
+    float sfxPauseTime = 0.5f;
+
     void Start()
     {
         LocateAudiosources();
@@ -61,37 +63,44 @@ public class AudioManager : Singleton<AudioManager>
 
     public void BananaBoing()
     {
-        bananaBoing.Play();
+        TryPlay(bananaBoing);
     }
     public void NewHighScore()
     {
-        newHighScore.Play();
+        TryPlay(newHighScore);
     }
     public void PikseliBanaani()
     {
-        pikseliBanaani.Play();
+        TryPlay(pikseliBanaani);
     }
     public void Tumps()
     {
-        tumps.Play();
+        TryPlay(tumps);
     }
     public void MetalliBanaani()
     {
-        metalliBanaani.Play();
+        TryPlay(metalliBanaani);
     }
     public void Paperi()
     {
-        paperi.Play();
+        TryPlay(paperi);
     }
     public void MenuButton1()
     {
-        menuButton1.Play();
+        TryPlay(menuButton1);
     }
     public void MenuButton2()
     {
-        menuButton2.Play();
+        TryPlay(menuButton2);
     }
 
+    void TryPlay(AudioSource audioSource)
+    {
+        if (audioSource.time > sfxPauseTime || !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
     #endregion
 
 }

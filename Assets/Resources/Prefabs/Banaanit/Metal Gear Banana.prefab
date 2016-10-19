@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6087740}
   - 50: {fileID: 5010108}
   - 114: {fileID: 11438768}
+  - 114: {fileID: 114000012024716218}
   m_Layer: 0
   m_Name: Metal Gear Banana
   m_TagString: Untagged
@@ -167,3 +168,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190470}
   m_IsPrefabParent: 1
+--- !u!114 &114000012024716218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732c6980ed960f74f90b99f8729242e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bojoing : MonoBehaviour
+public class Audio_Bojoing : MonoBehaviour
 {
     void OnCollisionExit2D(Collision2D coll)
     {

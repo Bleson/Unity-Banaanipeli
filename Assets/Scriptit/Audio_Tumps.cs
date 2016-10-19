@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tumps : MonoBehaviour {
+public class Audio_Tumps : MonoBehaviour {
 
-    void OnCollisionExit2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        AudioManager.Instance.Tumps();
+        if (coll.relativeVelocity.magnitude > 5)
+        {
+            AudioManager.Instance.Tumps();
+        }
     }
 }
