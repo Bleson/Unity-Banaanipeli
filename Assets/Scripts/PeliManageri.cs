@@ -3,6 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+/*
+    Data saving IDs ():
+    1 - Xbox
+    2 - Aito
+    3 - Kuorittu
+    4 - Schoko
+    5 - Pixel
+    6 - Vauva
+    7 - Oranssi
+    8 - Äitile
+    9 - Ananas
+    10 - Wooden
+    11 - Phone
+    12 - Metal
+    255 - Rare
+ *  "Total distance" - Total distance traveled
+ *  "Games played" - Games played
+ */
+
 public class PeliManageri : Singleton<PeliManageri> {
     protected PeliManageri() { }
     //-------------------------------------------------------------
@@ -15,8 +34,9 @@ public class PeliManageri : Singleton<PeliManageri> {
 
     [Header("Respawning")]
     public Checkpoint currentCheckpoint;
-    int pisteet = 0;
-    int maxPisteet = 0;
+    public int pisteet = 0;
+    public int maxPisteet = 0;
+    public int personalBest = 0;
 
     //Losing
     [Header("Häviäminen")]
@@ -33,42 +53,21 @@ public class PeliManageri : Singleton<PeliManageri> {
     Text pisteTekstiGameplay;
     Text pisteTekstiGameOver;
     Text timeDisplay;
-    Text bpGameplay;
-    Text bpGameOver;
+    TimerWarning timeWarning;
+    public Text bpGameplay;
+    public Text bpGameOver;
+    GameObject newbpGameOver;
+    NameDisplay nameDisplay;
     #endregion
     //-------------------------------------------------------------
     #region Unity Events
     void Awake()
     {
-        if (!GameOverUI)
-        {
-            GameOverUI = GameObject.Find("GameOverUI");
-        }
-        if (!GameUI)
-        {
-            GameUI = GameObject.Find("GameplayUI");
-        }
-        if (!pisteTekstiGameplay)
-        {
-            pisteTekstiGameplay = GetTextByObjectName("ScoreDisplay-GP");
-        }
-        if (!pisteTekstiGameOver)
-        {
-            pisteTekstiGameOver = GetTextByObjectName("ScoreDisplay-GO");
-        }
-        if (!timeDisplay)
-        {
-            timeDisplay = GetTextByObjectName("Timer-GP");
-        }
-        if (!bpGameplay)
-        {
-            bpGameplay = GetTextByObjectName("PBText-GP");
-        }
-        if (!bpGameOver)
-        {
-            bpGameOver = GetTextByObjectName("PBText-GO");
-        }
+        Init();
+    }
 
+    void Start()
+    {
         StartGame();
     }
 
@@ -95,6 +94,50 @@ public class PeliManageri : Singleton<PeliManageri> {
     #endregion
     //-------------------------------------------------------------
     //Game Events
+    void Init()
+    {
+        if (!GameOverUI)
+        {
+            GameOverUI = GameObject.Find("GameOverUI");
+        }
+        if (!GameUI)
+        {
+            GameUI = GameObject.Find("GameplayUI");
+        }
+        if (!pisteTekstiGameplay)
+        {
+            pisteTekstiGameplay = GetTextByObjectName("ScoreDisplay-GP");
+        }
+        if (!pisteTekstiGameOver)
+        {
+            pisteTekstiGameOver = GetTextByObjectName("ScoreDisplay-GO");
+        }
+        if (!timeDisplay)
+        {
+            timeDisplay = GetTextByObjectName("Timer-GP");
+        }
+        if (!timeWarning)
+        {
+            timeWarning = GameObject.FindObjectOfType<TimerWarning>();
+        }
+        if (!bpGameplay)
+        {
+            bpGameplay = GetTextByObjectName("PbDisplay-GP");
+        }
+        if (!bpGameOver)
+        {
+            bpGameOver = GetTextByObjectName("PBText-GO");
+        }
+        if (!newbpGameOver)
+        {
+            newbpGameOver = GameObject.Find("NewPBText-GO");
+        }
+        if (!nameDisplay)
+        {
+            nameDisplay = GameObject.FindObjectOfType<NameDisplay>();
+        }
+    }
+
     public void StartGame()
     {
         pisteet = 0;
@@ -105,17 +148,18 @@ public class PeliManageri : Singleton<PeliManageri> {
 
         GameUI.SetActive(true);
         GameOverUI.SetActive(false);
-        
-        if (tämänHetkinenBanaani)
-        {
-            Destroy(tämänHetkinenBanaani.gameObject);
-            tämänHetkinenBanaani = null;
-        }
+
         BanaaninSpawnaus();
+
         currentTimeToLose = startingTime;
         foreach (Checkpoint cp in GameObject.FindObjectsOfType<Checkpoint>())
         {
             cp.activated = false;
+        }
+
+        if (timeWarning)
+        {
+            timeWarning.TurnOff();
         }
     }
 
@@ -130,6 +174,7 @@ public class PeliManageri : Singleton<PeliManageri> {
     public void AddTime()
     {
         currentTimeToLose = Mathf.Clamp(currentTimeToLose + timeToAdd, 0f, maxTimeToLose);
+        timeWarning.TurnOff();
     }
     //-------------------------------------------------------------
     #region Päivityksiä
@@ -170,6 +215,8 @@ public class PeliManageri : Singleton<PeliManageri> {
 
             currentTimeToLose -= Time.deltaTime;
             timeDisplay.text = Mathf.RoundToInt(currentTimeToLose).ToString() + Tekstikirjasto.TEXT_TIME_POSTTEXT;
+            timeWarning.UpdateTime(ref currentTimeToLose);
+
             if (currentTimeToLose <= 0f)
             {
                 Häviä();
@@ -183,6 +230,8 @@ public class PeliManageri : Singleton<PeliManageri> {
         GameUI.SetActive(false);
         GameOverUI.SetActive(true);
         pisteTekstiGameOver.text = Tekstikirjasto.TEXT_SCORE_PRETEXT_GO + maxPisteet.ToString();
+        EnnätysCheck();
+        LisääPeli();
     }
 
     #endregion
@@ -190,30 +239,41 @@ public class PeliManageri : Singleton<PeliManageri> {
     #region Banaanin spawnaus
     void BanaaninSpawnaus()
     {
-        if (!tämänHetkinenBanaani)
+        if (tämänHetkinenBanaani)
         {
-            if (spawnaaBanaani)
+            Destroy(tämänHetkinenBanaani.gameObject);
+            tämänHetkinenBanaani = null;
+        }
+        if (spawnaaBanaani)
+        {
+            Banaani uusiBanaani = GameObject.FindObjectOfType<Banaani>();
+            if (uusiBanaani)
             {
-                Banaani uusiBanaani = GameObject.FindObjectOfType<Banaani>();
-                if (uusiBanaani)
-                {
-                    Destroy(uusiBanaani.gameObject);
-                }
-                tämänHetkinenBanaani = SpawnaaRandomBanaani();
+                Destroy(uusiBanaani.gameObject);
+            }
+            tämänHetkinenBanaani = SpawnaaRandomBanaani();
+        }
+        else
+        {
+            Banaani uusiBanaani = GameObject.FindObjectOfType<Banaani>();
+            if (uusiBanaani)
+            {
+                tämänHetkinenBanaani = uusiBanaani;
             }
             else
             {
-                Banaani uusiBanaani = GameObject.FindObjectOfType<Banaani>();
-                if (uusiBanaani)
-                {
-                    tämänHetkinenBanaani = uusiBanaani;
-                }
-                else
-                {
-                    tämänHetkinenBanaani = SpawnaaRandomBanaani();
-                }
+                tämänHetkinenBanaani = SpawnaaRandomBanaani();
             }
         }
+        LataaEnnätys();
+        nameDisplay.ShowName(tämänHetkinenBanaani.nimi);
+    }
+
+    Banaani SpawnaaBanaani(Banaani banaani)
+    {
+        Transform kameraTransformi = Kamera.Instance.transform;
+        GameObject banaani_ = (GameObject)Instantiate(banaani, bananaSpawningPosition, Quaternion.Euler(Vector3.zero));
+        return banaani_.GetComponent<Banaani>();
     }
 
     Banaani SpawnaaRandomBanaani() 
@@ -241,5 +301,43 @@ public class PeliManageri : Singleton<PeliManageri> {
         {
             return null;
         }
+    }
+
+    void EnnätysCheck()
+    {
+        if (pisteet > personalBest)
+        {
+            EnnätysTallennus();
+            newbpGameOver.SetActive(true);
+        }
+        else
+        {
+            newbpGameOver.SetActive(false); 
+        }
+    }
+
+    void EnnätysTallennus()
+    {
+        personalBest = pisteet;
+        PlayerPrefs.SetInt(tämänHetkinenBanaani.id.ToString(), personalBest);
+        bpGameplay.text = Tekstikirjasto.TEXT_BESTSCORE_PRETEXT + personalBest.ToString();
+        bpGameOver.text = Tekstikirjasto.TEXT_BESTSCORE_PRETEXT + personalBest.ToString();
+    }
+
+    void LataaEnnätys()
+    {
+        personalBest = PlayerPrefs.GetInt(tämänHetkinenBanaani.id.ToString());
+        bpGameplay.text = Tekstikirjasto.TEXT_BESTSCORE_PRETEXT + personalBest.ToString();
+        bpGameOver.text = Tekstikirjasto.TEXT_BESTSCORE_PRETEXT + personalBest.ToString();
+    }
+
+    void LisääPeli()
+    {
+        int gamesPlayed = PlayerPrefs.GetInt("Games played") + 1;
+        PlayerPrefs.SetInt("Games played", gamesPlayed);
+
+        int totalDistance = PlayerPrefs.GetInt("Total distance") + Mathf.Abs(pisteet);
+        PlayerPrefs.SetInt("Total distance", totalDistance);
+        PlayerPrefs.Save();
     }
 }

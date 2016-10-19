@@ -4,14 +4,24 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Banaani : MonoBehaviour 
 {
+    [Header("Stats")]
+    public int id = 0;
+    public string nimi = "";
+    byte highscore = 0;
+
+    //[SerializeField]
+    bool colliding = false;
+    public bool addForceOnAir = false;
+    [Header("Forces")]
+    
     public float vääntövoima = 3f;
     public float tönäsyvoima = 0.3f;
+    [Header("Time")]
     public float maksimiVääntöaika = 1f;
     public float jäljelläOlevaVääntöaika;
     public float vääntövoimanLatausKerroin = 2f;
 
     public Rigidbody2D kaksiulotteinenJämäkkäKeho;
-    
     //-----------------------------------------------------------------
     void Awake()
     {
@@ -26,6 +36,16 @@ public class Banaani : MonoBehaviour
     {
 	    
 	}
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        colliding = true;
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        colliding = false;
+    }
 
     internal virtual void PäivitäKontrollit()
     {
@@ -54,6 +74,16 @@ public class Banaani : MonoBehaviour
     internal virtual void KäännäBanaania(float directionMultiplier = 1f)
     {
         kaksiulotteinenJämäkkäKeho.AddTorque(vääntövoima * Time.deltaTime * directionMultiplier, ForceMode2D.Impulse);
+
+        //Don't add force on air
+        if (addForceOnAir || colliding)
+        {
+            LisääVoima(directionMultiplier);
+        }
+    }
+
+    internal virtual void LisääVoima(float directionMultiplier = 1f)
+    {
         kaksiulotteinenJämäkkäKeho.AddForce(new Vector2(tönäsyvoima * directionMultiplier, tönäsyvoima * directionMultiplier / 2f), ForceMode2D.Force);
     }
 
@@ -66,6 +96,9 @@ public class Banaani : MonoBehaviour
 
     internal void Refresh()
     {
-        jäljelläOlevaVääntöaika = maksimiVääntöaika;
+        if (vääntövoimanLatausKerroin == 0)
+        {
+            jäljelläOlevaVääntöaika = maksimiVääntöaika;
+        }
     }
 }
