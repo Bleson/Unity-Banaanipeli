@@ -3,8 +3,11 @@ using System.Collections;
 
 public class Audio_Bojoing : MonoBehaviour
 {
-    void OnCollisionExit2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        AudioManager.Instance.BananaBoing();
+        if (coll.relativeVelocity.magnitude > 5)
+        {
+            AudioManager.Instance.BananaBoing();
+        }
     }
 }

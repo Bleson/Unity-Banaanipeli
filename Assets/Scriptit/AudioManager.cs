@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AudioManager : Singleton<AudioManager>
 {
+    protected AudioManager() {}
+
     public bool musicOn = true;
 
     [SerializeField] AudioSource musicManager;
